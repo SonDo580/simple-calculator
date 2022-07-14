@@ -32,10 +32,10 @@ button {
     font-size: 24px;
 }
 
-button.span-row {
+#calculate {
     grid-row: span 2;
 }
 
-button.span-column {
+#zero {
     grid-column: span 2;
 }
