@@ -1,1 +1,1 @@
-# simple-calculator
+A simple calculator with 4 basic operation: addition, subtraction, multiplication, division.
