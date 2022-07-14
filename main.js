@@ -1,16 +1,18 @@
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', show));
 
-const operatorButtons = document.querySelectorAll('operator');
+const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => button.addEventListener('click', show));
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 
+operationDisplay.textContent = '';
+
 function show(e) {
     const button = e.target;
-    operationDisplay.textContent = button.textContent;
-
+    operationDisplay.textContent += 
+    `${button.classList.contains('operator') ? ' ' + button.textContent + ' ' : button.textContent}`;
 }
 
 
