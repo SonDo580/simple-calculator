@@ -1,11 +1,11 @@
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', show));
 
-// const display = document.querySelector('.display');
+const display = document.querySelector('.display');
 
-// function show(e) {
-//     console.log(e.target);
-// }
+function show(e) {
+    console.log(e.target);
+}
 
 
 function add(a, b) {
