@@ -1,10 +1,12 @@
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', show));
 
-const display = document.querySelector('.display');
+const operationDisplay = document.querySelector('.operation');
+const resultDisplay = document.querySelector('.result');
 
 function show(e) {
-    console.log(e.target);
+    const button = e.target;
+    operationDisplay.textContent = button.textContent;
 }
 
 
