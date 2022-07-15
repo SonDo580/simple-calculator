@@ -40,9 +40,7 @@ function addToExpression(e) {
             return;
         }
 
-        operationDisplay.textContent +=
-            `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
-
+        operationDisplay.textContent += button.textContent;
         buttonSelections.push(button);
     }
 }
@@ -52,7 +50,7 @@ function isOperator(element) {
 }
 
 function removeLastSelection() {
-
+    
 }
 
 function add(a, b) {
