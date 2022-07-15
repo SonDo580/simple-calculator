@@ -14,9 +14,11 @@ const expressionElements = [];
 function addToExpression(e) {
     const button = e.target;
 
-    if (expressionElements.length === 0) {
+    if (expressionElements.length === 0) {  // When user chooses the first character
         if (isOperator(button) && (button.textContent === '+' || button.textContent === '-')) {
             operationDisplay.textContent += button.textContent;
+            return;
+        } else if (isOperator(button) || button.textContent === '.') {    // Can't enter '*', '/', and '.' first
             return;
         }
     }
