@@ -19,7 +19,7 @@ function addToExpression(e) {
     }
 
     operationDisplay.textContent += 
-    `${button.classList.contains('operator') ? ' ' + button.textContent + ' ' : button.textContent}`;
+    `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
 }
 
 function isOperator(element) {
