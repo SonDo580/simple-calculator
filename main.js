@@ -14,17 +14,18 @@ const expressionElements = [];
 function addToExpression(e) {
     const button = e.target;
 
-    if (expressionElements.length === 0) {  // When user chooses the first character
+    if (expressionElements.length === 0) {  // When user selects the first button
         if (isOperator(button) && (button.textContent === '+' || button.textContent === '-')) {
             operationDisplay.textContent += button.textContent;
-            return;
-        } else if (isOperator(button) || button.textContent === '.') {    // Can't enter '*', '/', and '.' first
+        } else if (isOperator(button) || button.textContent === '.') {    // Can't select '*', '/', and '.' first
             return;
         }
     }
 
     operationDisplay.textContent += 
     `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
+    
+    
 }
 
 function isOperator(element) {
