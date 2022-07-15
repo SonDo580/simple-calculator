@@ -15,8 +15,8 @@ clearButton.addEventListener('click', clearExpression);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
-
 operationDisplay.textContent = '';
+resultDisplay = '';
 
 let buttonSelections = [];
 
