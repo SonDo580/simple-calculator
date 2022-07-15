@@ -9,7 +9,7 @@ const resultDisplay = document.querySelector('.result');
 
 operationDisplay.textContent = '';
 
-const expressionElements = [];
+const buttonSelections = [];
 
 function addToExpression(e) {
     const button = e.target;
@@ -25,6 +25,10 @@ function addToExpression(e) {
         }
 
     } else {
+        if (isOperator(expressionElements[-1]) && isOperator(button)) {
+
+        }
+
         operationDisplay.textContent +=
             `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
 
