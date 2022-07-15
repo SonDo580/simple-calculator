@@ -72,7 +72,11 @@ function evaluateExpression() {
         return;
     }
 
-    
+    let expression = getExpression();
+    const operands = expression.split(/[^0-9.]/);
+    const operator = expression[expression.search(/[^0-9.]/)];
+
+    resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
 }
 
 function getExpression() {
