@@ -50,7 +50,10 @@ function isOperator(element) {
 }
 
 function removeLastSelection() {
+    buttonSelections.pop();
     
+    operationDisplay.textContent = 
+    buttonSelections.map(button => button.textContent).join('');
 }
 
 function add(a, b) {
