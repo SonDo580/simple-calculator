@@ -9,8 +9,11 @@ const resultDisplay = document.querySelector('.result');
 
 operationDisplay.textContent = '';
 
+const expressionElements = [];
+
 function addToExpression(e) {
     const button = e.target;
+
     operationDisplay.textContent += 
     `${button.classList.contains('operator') ? ' ' + button.textContent + ' ' : button.textContent}`;
 }
