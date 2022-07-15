@@ -14,10 +14,17 @@ const expressionElements = [];
 function addToExpression(e) {
     const button = e.target;
 
+    if (expressionElements.length === 0) {
+    
+    }
+
     operationDisplay.textContent += 
     `${button.classList.contains('operator') ? ' ' + button.textContent + ' ' : button.textContent}`;
 }
 
+function isOperator(element) {
+    return element.classList.contains('operator');
+}
 
 function add(a, b) {
     return a + b;
