@@ -8,7 +8,7 @@ const decimalPoint = document.querySelector('#decimalPoint');
 decimalPoint.addEventListener('click', addToExpression);
 
 const deleteButton = document.querySelector('#delete');
-deleteButton.addEventListener('click', removeLastButton);
+deleteButton.addEventListener('click', removeLastSelection);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -49,6 +49,10 @@ function addToExpression(e) {
 
 function isOperator(element) {
     return element.classList.contains('operator');
+}
+
+function removeLastSelection() {
+
 }
 
 function add(a, b) {
