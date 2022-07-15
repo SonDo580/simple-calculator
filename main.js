@@ -21,7 +21,6 @@ function addToExpression(e) {
         } else {
             operationDisplay.textContent += button.textContent;
             buttonSelections.push(button);
-            return;
         }
 
     } else {
