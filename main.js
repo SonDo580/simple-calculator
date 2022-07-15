@@ -17,15 +17,17 @@ function addToExpression(e) {
     if (expressionElements.length === 0) {  // When user selects the first button
         if (isOperator(button) && (button.textContent === '+' || button.textContent === '-')) {
             operationDisplay.textContent += button.textContent;
+            expressionElements.push(button.textContent);
         } else if (isOperator(button) || button.textContent === '.') {    // Can't select '*', '/', and '.' first
             return;
         }
+    } else {
+        operationDisplay.textContent += 
+        `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
+        expressionElements.push(button.textContent);
     }
-
-    operationDisplay.textContent += 
-    `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
     
-    
+    console.log(expressionElements);
 }
 
 function isOperator(element) {
