@@ -18,17 +18,19 @@ function addToExpression(e) {
         if (button.textContent === '*'
             || button.textContent === '/'
             || button.textContent === '.') {
+                
             return;
         }
 
         operationDisplay.textContent += button.textContent;
         buttonSelections.push(button);
-        
+
     } else {
         const lastButton = buttonSelections[buttonSelections.length - 1];
         if (isOperator(lastButton) && isOperator(button)
             || isOperator(lastButton) && button.textContent === '.'
             || lastButton.textContent === '.' && isOperator(button)) {
+
             return;
         }
 
