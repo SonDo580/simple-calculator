@@ -15,7 +15,8 @@ function addToExpression(e) {
     const button = e.target;
 
     if (expressionElements.length === 0) {
-        if (isOperator(button)) {
+        if (isOperator(button) && (button.textContent === '+' || button.textContent === '-')) {
+            operationDisplay.textContent += button.textContent;
             return;
         }
     }
