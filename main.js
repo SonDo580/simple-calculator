@@ -15,18 +15,22 @@ function addToExpression(e) {
     const button = e.target;
 
     if (expressionElements.length === 0) {  // When user selects the first button
-        if (isOperator(button) && (button.textContent === '+' || button.textContent === '-')) {
+        if (isOperator(button) && (button.textContent === '*' || button.textContent === '/')
+            || button.textContent === '.') {
+                return;
+        } else {
             operationDisplay.textContent += button.textContent;
-        } else if (isOperator(button) || button.textContent === '.') {    // Can't select '*', '/', and '.' first
+            expressionElements.push(button.textContent);
             return;
         }
-        expressionElements.push(button.textContent);
+
     } else {
-        operationDisplay.textContent += 
-        `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
+        operationDisplay.textContent +=
+            `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
+
         expressionElements.push(button.textContent);
     }
-    
+
     console.log(expressionElements);
 }
 
