@@ -19,11 +19,11 @@ function addToExpression(e) {
             || button.textContent === '/'
             || button.textContent === '.') {
             return;
-        } else {
-            operationDisplay.textContent += button.textContent;
-            buttonSelections.push(button);
         }
 
+        operationDisplay.textContent += button.textContent;
+        buttonSelections.push(button);
+        
     } else {
         const lastButton = buttonSelections[buttonSelections.length - 1];
         if (isOperator(lastButton) && isOperator(button)
