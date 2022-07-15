@@ -13,6 +13,9 @@ deleteButton.addEventListener('click', removeLastSelection);
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearAll);
 
+const evaluateButton = document.querySelector('#evaluate');
+evaluateButton.addEventListener('click', evaluateExpression);
+
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
