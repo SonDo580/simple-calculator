@@ -68,6 +68,10 @@ function clearAll() {
     resultDisplay.textContent = '';
 }
 
+function evaluateExpression() {
+    
+}
+
 function add(a, b) {
     return a + b;
 }
