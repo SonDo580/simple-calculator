@@ -69,6 +69,11 @@ function clearAll() {
 }
 
 function evaluateExpression() {
+    const lastButton = buttonSelections[buttonSelections.length - 1];
+    if (isOperator(lastButton) || lastButton.textContent === '.') {
+        return;
+    }
+
     
 }
 
