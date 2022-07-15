@@ -18,7 +18,7 @@ const resultDisplay = document.querySelector('.result');
 
 operationDisplay.textContent = '';
 
-const buttonSelections = [];
+let buttonSelections = [];
 
 function addToExpression(e) {
     const button = e.target;
@@ -57,6 +57,11 @@ function removeLastSelection() {
     
     operationDisplay.textContent = 
     buttonSelections.map(button => button.textContent).join('');
+}
+
+function clearExpression() {
+    
+    operationDisplay.textContent = '';
 }
 
 function add(a, b) {
