@@ -77,6 +77,10 @@ function evaluateExpression() {
     
 }
 
+function getExpression() {
+    return buttonSelections.map(button => button.textContent).join('');
+}
+
 function add(a, b) {
     return a + b;
 }
