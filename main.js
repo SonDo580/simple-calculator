@@ -11,7 +11,7 @@ const deleteButton = document.querySelector('#delete');
 deleteButton.addEventListener('click', removeLastSelection);
 
 const clearButton = document.querySelector('#clear');
-clearButton.addEventListener('click', clearExpression);
+clearButton.addEventListener('click', clearAll);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -59,7 +59,7 @@ function removeLastSelection() {
     buttonSelections.map(button => button.textContent).join('');
 }
 
-function clearExpression() {
+function clearAll() {
     buttonSelections = [];
     operationDisplay.textContent = '';
     resultDisplay.textContent = '';
