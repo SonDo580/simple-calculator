@@ -62,6 +62,7 @@ function removeLastSelection() {
 function clearExpression() {
     buttonSelections = [];
     operationDisplay.textContent = '';
+    resultDisplay.textContent = '';
 }
 
 function add(a, b) {
