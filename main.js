@@ -20,7 +20,7 @@ function addToExpression(e) {
             return;
         } else {
             operationDisplay.textContent += button.textContent;
-            buttonSelections.push(button.textContent);
+            buttonSelections.push(button);
             return;
         }
 
@@ -32,7 +32,7 @@ function addToExpression(e) {
         operationDisplay.textContent +=
             `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
 
-        buttonSelections.push(button.textContent);
+        buttonSelections.push(button);
     }
 
     console.log(buttonSelections);
