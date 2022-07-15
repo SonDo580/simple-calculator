@@ -15,7 +15,8 @@ function addToExpression(e) {
     const button = e.target;
 
     if (buttonSelections.length === 0) {  // When user selects the first button
-        if (isOperator(button) && (button.textContent === '*' || button.textContent === '/')
+        if (button.textContent === '*'
+            || button.textContent === '/'
             || button.textContent === '.') {
             return;
         } else {
@@ -24,9 +25,12 @@ function addToExpression(e) {
         }
 
     } else {
-        // if (isOperator(buttonSelections[-1]) && isOperator(button)) {
-
-        // }
+        const lastButton = buttonSelections[buttonSelections.length - 1];
+        if (isOperator(lastButton) && isOperator(button)
+            || isOperator(lastButton) && button.textContent === '.'
+            || lastButton.textContent === '.' && isOperator(button)) {
+            return;
+        }
 
         operationDisplay.textContent +=
             `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
