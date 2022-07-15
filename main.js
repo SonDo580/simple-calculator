@@ -57,9 +57,7 @@ function isOperator(element) {
 
 function removeLastSelection() {
     buttonSelections.pop();
-    
-    operationDisplay.textContent = 
-    buttonSelections.map(button => button.textContent).join('');
+    operationDisplay.textContent = getExpression();
 }
 
 function clearAll() {
