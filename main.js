@@ -14,28 +14,28 @@ const buttonSelections = [];
 function addToExpression(e) {
     const button = e.target;
 
-    if (expressionElements.length === 0) {  // When user selects the first button
+    if (buttonSelections.length === 0) {  // When user selects the first button
         if (isOperator(button) && (button.textContent === '*' || button.textContent === '/')
             || button.textContent === '.') {
-                return;
+            return;
         } else {
             operationDisplay.textContent += button.textContent;
-            expressionElements.push(button.textContent);
+            buttonSelections.push(button.textContent);
             return;
         }
 
     } else {
-        if (isOperator(expressionElements[-1]) && isOperator(button)) {
+        // if (isOperator(buttonSelections[-1]) && isOperator(button)) {
 
-        }
+        // }
 
         operationDisplay.textContent +=
             `${isOperator(button) ? ' ' + button.textContent + ' ' : button.textContent}`;
 
-        expressionElements.push(button.textContent);
+        buttonSelections.push(button.textContent);
     }
 
-    console.log(expressionElements);
+    console.log(buttonSelections);
 }
 
 function isOperator(element) {
