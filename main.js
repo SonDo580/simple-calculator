@@ -4,6 +4,9 @@ numberButtons.forEach(button => button.addEventListener('click', addToExpression
 const operatorButtons = document.querySelectorAll('.operator');
 operatorButtons.forEach(button => button.addEventListener('click', addToExpression));
 
+const decimalPoint = document.querySelector('#decimalPoint');
+decimalPoint.addEventListener('click', addToExpression);
+
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 
@@ -18,7 +21,7 @@ function addToExpression(e) {
         if (button.textContent === '*'
             || button.textContent === '/'
             || button.textContent === '.') {
-                
+
             return;
         }
 
