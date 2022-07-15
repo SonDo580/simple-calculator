@@ -10,6 +10,9 @@ decimalPoint.addEventListener('click', addToExpression);
 const deleteButton = document.querySelector('#delete');
 deleteButton.addEventListener('click', removeLastSelection);
 
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', clearExpression);
+
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 
