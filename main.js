@@ -20,8 +20,8 @@ resultDisplay.textContent = '';
 
 let buttonSelections = [];
 
-function addToExpression(e) {
-    const button = e.target;
+function addToExpression(event) {
+    const button = event.target;
 
     if (buttonSelections.length === 0) {  // When user selects the first button
         if (button.textContent === '*'
