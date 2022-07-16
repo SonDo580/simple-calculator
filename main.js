@@ -50,10 +50,18 @@ function addToExpression(event) {
             return;
         }
 
-        const operands = expression.split(/[^0-9.]/);
-        if (operands.length === 2) {
+        const numbers = expression.split(/[^0-9.]/);
+        if (numbers[0] === '') {       
+            numbers.shift();
+        }
+        if (numbers[numbers.length - 1] === '') {
+            numbers.pop();
+        }
+
+        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
             if (isOperator(button)) {
                 evaluateExpression();
+                expression = result;
             }
         }
 
