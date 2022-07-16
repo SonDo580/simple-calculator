@@ -7,14 +7,14 @@ operatorButtons.forEach(button => button.addEventListener('click', addToExpressi
 const decimalPoint = document.querySelector('#decimalPoint');
 decimalPoint.addEventListener('click', addToExpression);
 
-const deleteButton = document.querySelector('#delete');
-deleteButton.addEventListener('click', removeLastSelection);
+// const deleteButton = document.querySelector('#delete');
+// deleteButton.addEventListener('click', removeLastSelection);
 
-const clearButton = document.querySelector('#clear');
-clearButton.addEventListener('click', clearAll);
+// const clearButton = document.querySelector('#clear');
+// clearButton.addEventListener('click', clearAll);
 
-const evaluateButton = document.querySelector('#evaluate');
-evaluateButton.addEventListener('click', evaluateExpression);
+// const evaluateButton = document.querySelector('#evaluate');
+// evaluateButton.addEventListener('click', evaluateExpression);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -35,8 +35,9 @@ function addToExpression(event) {
             return;
         }
 
-        operationDisplay.textContent += button.textContent;
         buttonSelections.push(button);
+        expression += button.textContent;
+        operationDisplay.textContent = expression;
 
     } else {
         const lastButton = buttonSelections[buttonSelections.length - 1];
@@ -47,8 +48,9 @@ function addToExpression(event) {
             return;
         }
 
-        operationDisplay.textContent += button.textContent;
         buttonSelections.push(button);
+        expression += button.textContent;
+        operationDisplay.textContent = expression;
     }
 }
 
@@ -56,33 +58,33 @@ function isOperator(element) {
     return element.classList.contains('operator');
 }
 
-function removeLastSelection() {
-    buttonSelections.pop();
-    operationDisplay.textContent = getExpression();
-}
+// function removeLastSelection() {
+//     buttonSelections.pop();
+//     operationDisplay.textContent = getExpression();
+// }
 
-function clearAll() {
-    buttonSelections = [];
-    operationDisplay.textContent = '';
-    resultDisplay.textContent = '';
-}
+// function clearAll() {
+//     buttonSelections = [];
+//     operationDisplay.textContent = '';
+//     resultDisplay.textContent = '';
+// }
 
-function evaluateExpression() {
-    const lastButton = buttonSelections[buttonSelections.length - 1];
-    if (isOperator(lastButton) || lastButton.textContent === '.') {
-        return;
-    }
+// function evaluateExpression() {
+//     const lastButton = buttonSelections[buttonSelections.length - 1];
+//     if (isOperator(lastButton) || lastButton.textContent === '.') {
+//         return;
+//     }
 
-    let expression = getExpression();
-    const operands = expression.split(/[^0-9.]/);
-    const operator = expression[expression.search(/[^0-9.]/)];
+//     let expression = getExpression();
+//     const operands = expression.split(/[^0-9.]/);
+//     const operator = expression[expression.search(/[^0-9.]/)];
 
-    resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
-}
+//     resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
+// }
 
-function getExpression() {
-    return buttonSelections.map(button => button.textContent).join('');
-}
+// function getExpression() {
+//     return buttonSelections.map(button => button.textContent).join('');
+// }
 
 function add(a, b) {
     return a + b;
