@@ -44,12 +44,19 @@ function addToExpression(event) {
         const lastButton = buttonSelections[buttonSelections.length - 1];
         if (isOperator(lastButton) && isOperator(button)
             || isOperator(lastButton) && button.textContent === '.'
-            || lastButton.textContent === '.' && isOperator(button)) {
+            || lastButton.textContent === '.' && isOperator(button)
+            || lastButton.textContent === '.' && button.textContent === '.') {
 
             return;
         }
 
         buttonSelections.push(button);
+
+        const operands = expression.split(/[^0-9.]/);
+        if (operands.length === 2) {
+
+        }
+
         expression += button.textContent;
         operationDisplay.textContent = expression;
     }
