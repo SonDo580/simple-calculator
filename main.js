@@ -77,11 +77,11 @@ function evaluateExpression() {
         return;
     }
 
-    const operands = expression.split(/[^0-9.]/);
-    const operator = expression[expression.search(/[^0-9.]/)];
+    const operator = expression.match(/[^0-9.]/g)[1];
 
-    result = operate(operator, +operands[0], +operands[1]);
-    resultDisplay.textContent = result;
+
+    // result = operate(operator, +operands[0], +operands[1]);
+    // resultDisplay.textContent = result;
 }
 
 function add(a, b) {
