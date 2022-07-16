@@ -19,10 +19,11 @@ clearButton.addEventListener('click', clearAll);
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
-resultDisplay.textContent = '';
+resultDisplay.textContent = 0;
 
 let buttonSelections = [];
 let expression = '';
+let result = 0;
 
 function addToExpression(event) {
     const button = event.target;
@@ -70,18 +71,17 @@ function clearAll() {
     resultDisplay.textContent = '';
 }
 
-// function evaluateExpression() {
-//     const lastButton = buttonSelections[buttonSelections.length - 1];
-//     if (isOperator(lastButton) || lastButton.textContent === '.') {
-//         return;
-//     }
+function evaluateExpression() {
+    const lastButton = buttonSelections[buttonSelections.length - 1];
+    if (isOperator(lastButton) || lastButton.textContent === '.') {
+        return;
+    }
 
-//     let expression = getExpression();
-//     const operands = expression.split(/[^0-9.]/);
-//     const operator = expression[expression.search(/[^0-9.]/)];
+    const operands = expression.split(/[^0-9.]/);
+    const operator = expression[expression.search(/[^0-9.]/)];
 
-//     resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
-// }
+    resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
+}
 
 function add(a, b) {
     return a + b;
