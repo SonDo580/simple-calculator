@@ -50,8 +50,6 @@ function addToExpression(event) {
             return;
         }
 
-        buttonSelections.push(button);
-
         const operands = expression.split(/[^0-9.]/);
         if (operands.length === 2) {
             if (isOperator(button)) {
@@ -59,6 +57,7 @@ function addToExpression(event) {
             }
         }
 
+        buttonSelections.push(button);
         expression += button.textContent;
         operationDisplay.textContent = expression;
     }
