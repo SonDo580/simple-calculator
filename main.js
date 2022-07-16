@@ -54,7 +54,9 @@ function addToExpression(event) {
 
         const operands = expression.split(/[^0-9.]/);
         if (operands.length === 2) {
-
+            if (isOperator(button)) {
+                evaluateExpression();
+            }
         }
 
         expression += button.textContent;
@@ -93,6 +95,8 @@ function evaluateExpression() {
 
     result = operate(operator, firstOperand, secondOperand);
     resultDisplay.textContent = result;
+    
+    return result;
 }
 
 function add(a, b) {
