@@ -7,8 +7,8 @@ operatorButtons.forEach(button => button.addEventListener('click', addToExpressi
 const decimalPoint = document.querySelector('#decimalPoint');
 decimalPoint.addEventListener('click', addToExpression);
 
-// const deleteButton = document.querySelector('#delete');
-// deleteButton.addEventListener('click', removeLastSelection);
+const deleteButton = document.querySelector('#delete');
+deleteButton.addEventListener('click', removeLastSelection);
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearAll);
@@ -58,10 +58,11 @@ function isOperator(element) {
     return element.classList.contains('operator');
 }
 
-// function removeLastSelection() {
-//     buttonSelections.pop();
-//     operationDisplay.textContent = getExpression();
-// }
+function removeLastSelection() {
+    buttonSelections.pop();
+    expression = expression.slice(0, expression.length - 1);
+    operationDisplay.textContent = expression;
+}
 
 function clearAll() {
     buttonSelections = [];
