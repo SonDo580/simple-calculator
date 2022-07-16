@@ -13,8 +13,8 @@ deleteButton.addEventListener('click', removeLastSelection);
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearAll);
 
-// const evaluateButton = document.querySelector('#evaluate');
-// evaluateButton.addEventListener('click', evaluateExpression);
+const evaluateButton = document.querySelector('#evaluate');
+evaluateButton.addEventListener('click', evaluateExpression);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -80,7 +80,8 @@ function evaluateExpression() {
     const operands = expression.split(/[^0-9.]/);
     const operator = expression[expression.search(/[^0-9.]/)];
 
-    resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
+    result = operate(operator, +operands[0], +operands[1]);
+    resultDisplay.textContent = result;
 }
 
 function add(a, b) {
