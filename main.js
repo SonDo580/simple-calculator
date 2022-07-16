@@ -22,6 +22,7 @@ operationDisplay.textContent = '';
 resultDisplay.textContent = '';
 
 let buttonSelections = [];
+let expression = '';
 
 function addToExpression(event) {
     const button = event.target;
