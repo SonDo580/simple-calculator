@@ -10,8 +10,8 @@ decimalPoint.addEventListener('click', addToExpression);
 // const deleteButton = document.querySelector('#delete');
 // deleteButton.addEventListener('click', removeLastSelection);
 
-// const clearButton = document.querySelector('#clear');
-// clearButton.addEventListener('click', clearAll);
+const clearButton = document.querySelector('#clear');
+clearButton.addEventListener('click', clearAll);
 
 // const evaluateButton = document.querySelector('#evaluate');
 // evaluateButton.addEventListener('click', evaluateExpression);
@@ -63,11 +63,11 @@ function isOperator(element) {
 //     operationDisplay.textContent = getExpression();
 // }
 
-// function clearAll() {
-//     buttonSelections = [];
-//     operationDisplay.textContent = '';
-//     resultDisplay.textContent = '';
-// }
+function clearAll() {
+    buttonSelections = [];
+    operationDisplay.textContent = '';
+    resultDisplay.textContent = '';
+}
 
 // function evaluateExpression() {
 //     const lastButton = buttonSelections[buttonSelections.length - 1];
@@ -80,10 +80,6 @@ function isOperator(element) {
 //     const operator = expression[expression.search(/[^0-9.]/)];
 
 //     resultDisplay.textContent = operate(operator, +operands[0], +operands[1]);
-// }
-
-// function getExpression() {
-//     return buttonSelections.map(button => button.textContent).join('');
 // }
 
 function add(a, b) {
