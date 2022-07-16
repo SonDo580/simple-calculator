@@ -16,10 +16,12 @@
 .display .operation {
     font-size: 32px;
     color: blue;
+    height: 50%;
 }
 
 .display .result {
     font-size: 48px;
+    height: 50%;
 }
 
 .buttons {
