@@ -95,8 +95,6 @@ function evaluateExpression() {
 
     result = operate(operator, firstOperand, secondOperand);
     resultDisplay.textContent = result;
-    
-    return result;
 }
 
 function add(a, b) {
