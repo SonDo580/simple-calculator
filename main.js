@@ -84,8 +84,8 @@ function evaluateExpression() {
     const firstOperand = +expression.slice(0, opertorIndex);
     const secondOperand = +expression.slice(opertorIndex + 1);
 
-    // result = operate(operator, +operands[0], +operands[1]);
-    // resultDisplay.textContent = result;
+    result = operate(operator, firstOperand, secondOperand);
+    resultDisplay.textContent = result;
 }
 
 function add(a, b) {
