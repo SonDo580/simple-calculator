@@ -1,11 +1,3 @@
-const expressionRegex = /[0-9.\+\-\*\/]/;
-const operatorRegex = /[\+\-\*\/]/;
-
-const functionKeys = [];
-for (let i = 1; i <= 12; i++) {
-    functionKeys.push(`F${i}`);
-}
-
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', addToExpression));
 
@@ -29,10 +21,18 @@ const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
 resultDisplay.textContent = 0;
 
+window.addEventListener('keydown', handleKeyPress);
+
+const expressionRegex = /[0-9.\+\-\*\/]/;
+const operatorRegex = /[\+\-\*\/]/;
+
+const functionKeys = [];
+for (let i = 1; i <= 12; i++) {
+    functionKeys.push(`F${i}`);
+}
+
 let expression = '';
 let result = 0;
-
-window.addEventListener('keydown', handleKeyPress);
 
 function addToExpression(event) {
     const button = event.target.textContent;
