@@ -38,7 +38,9 @@ function switchMode(event) {
 
     if (modeButton.id === 'mouseMode') {
         calculatorButtons.forEach(button => button.disabled = false);
-        window.removeEventListener('keydown');
+        window.removeEventListener('keydown', handleKeyPress);
+        // mouseModeButton.classList.add('active');
+        // keyboardModeButton.classList.remove('active');
 
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
@@ -181,8 +183,6 @@ function operate(operator, a, b) {
     }
 }
 
-
-// The following functions are for keyboard support
 function handleKeyPress(event) {
     const key = event.key;
 
@@ -248,3 +248,4 @@ function handleKeyPress(event) {
 //         operationDisplay.textContent = expression;
 //     }
 // } 
+
