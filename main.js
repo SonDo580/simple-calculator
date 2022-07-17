@@ -240,12 +240,13 @@ function addKeyToExpression(key) {
             }
         }
 
-        // if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-        //     if (isOperator(button)) {
-        //         evaluateExpression();
-        //         expression = result;
-        //     }
-        // }
+        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
+            if (isOperatorKey(key)) {
+                // evaluateExpression();
+                result = 'test';
+                expression = result;
+            }
+        }
 
         expression += key;
         operationDisplay.textContent = expression;
