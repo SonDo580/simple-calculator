@@ -200,21 +200,13 @@ function handleKeyPress(event) {
 
     if (key === 'Shift') {
         return;
-    } 
-    
-    if (functionKeys.includes(key)) {
+    } else if (functionKeys.includes(key)) {
         return;
-    }
-
-    if (expressionRegex.test(key)) {
+    } else if (expressionRegex.test(key)) {
         addKeyToExpression(key);
-    }
-
-    if (key === 'Backspace') {
+    } else if (key === 'Backspace') {
         removeLastKey();
-    }
-
-    if (key === 'Delete') {
+    } else if (key === 'Delete') {
         clearAllKeys();
     }
 }
