@@ -32,6 +32,7 @@ resultDisplay.textContent = 0;
 let expression = '';
 let result = 0;
 
+window.addEventListener('keydown', handleKeyPress);
 
 function addToExpression(event) {
     const button = event.target.textContent;
