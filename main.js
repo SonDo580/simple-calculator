@@ -36,6 +36,7 @@ function switchMode(event) {
     const modeButton = event.target;
     if (modeButton.id === 'mouseMode') {
         calculatorButtons.forEach(button => button.disabled = false);
+        window.removeEventListener('keydown');
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
         window.addEventListener('keydown', handleKeyPress);
