@@ -60,59 +60,9 @@ function switchMode(event) {
     }
 }
 
-function addToExpression(event) {
-    const button = event.target;
-
-    if (buttonSelections.length === 0) {  // When user selects the first button
-        if (button.textContent === '*'
-            || button.textContent === '/'
-            || button.textContent === '.') {
-
-            return;
-        }
-
-        buttonSelections.push(button);
-        expression += button.textContent;
-        operationDisplay.textContent = expression;
-
-    } else {
-        const lastButton = buttonSelections[buttonSelections.length - 1];
-        if (isOperator(lastButton) && isOperator(button)
-            || isOperator(lastButton) && button.textContent === '.'
-            || lastButton.textContent === '.' && isOperator(button)
-            || lastButton.textContent === '.' && button.textContent === '.') {
-
-            return;
-        }
-
-        const numbers = expression.split(/[^0-9.]/);
-        if (numbers[0] === '') {
-            numbers.shift();
-        }
-        if (numbers[numbers.length - 1] === '') {
-            numbers.pop();
-        }
-
-        // Don't let user select 2 '.' in a number
-        if (button.textContent === '.') {
-            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
-                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
-
-                return;
-            }
-        }
-
-        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-            if (isOperator(button)) {
-                evaluateExpression();
-                expression = result;
-            }
-        }
-
-        buttonSelections.push(button);
-        expression += button.textContent;
-        operationDisplay.textContent = expression;
-    }
+function addButtonToExpression(event) {
+    const button = event.target.textContent;
+    addKeyToExpression(button);
 }
 
 function isOperator(element) {
