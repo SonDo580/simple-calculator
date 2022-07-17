@@ -21,8 +21,6 @@ const keyboardModeButton = document.querySelector('#keyboardMode');
 mouseModeButton.addEventListener('click', switchMode);
 keyboardModeButton.addEventListener('click', switchMode);
 
-// window.addEventListener('keydown', handleKeyPress);
-
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
@@ -40,6 +38,7 @@ function switchMode(event) {
         calculatorButtons.forEach(button => button.disabled = false);
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
+        window.addEventListener('keydown', handleKeyPress);
     }
 }
 
