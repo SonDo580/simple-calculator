@@ -214,7 +214,6 @@ function addKeyToExpression(key) {
 
     } else {
         const lastKey = expression[expression.length - 1];
-        console.log(lastKey);
 
         if (isOperatorKey(lastKey) && isOperatorKey(key)
             || isOperatorKey(lastKey) && key === '.'
@@ -248,9 +247,8 @@ function addKeyToExpression(key) {
         //     }
         // }
 
-        // buttonSelections.push(button);
-        // expression += button.textContent;
-        // operationDisplay.textContent = expression;
+        expression += key;
+        operationDisplay.textContent = expression;
     }
 } 
 
