@@ -1,6 +1,11 @@
 const expressionRegex = /[0-9.\+\-\*\/]/;
 const operatorRegex = /[\+\-\*\/]/;
-const functionKeyRegex = /F[1-12]/;
+
+const functionKeys = [];
+for (let i = 1; i <= 12; i++) {
+    functionKeys.push(`F${i}`);
+}
+console.log(functionKeys);
 
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', addToExpression));
@@ -193,8 +198,14 @@ function operate(operator, a, b) {
 
 function handleKeyPress(event) {
     const key = event.key;
+    console.log(event);
 
-    if (key === 'Shift' || functionKeyRegex.test(key)) {
+    if (key === 'Shift') {
+        return;
+    } 
+    
+    if (['F1', 'F2', 'F3', 'F4'].includes(key)) {
+        console.log(`2: ${key}`);
         return;
     }
 
@@ -204,7 +215,7 @@ function handleKeyPress(event) {
 }
 
 function addKeyToExpression(key) {
-    console.log(key);
+    console.log(`3: ${key}`);
 
     if (expression === '') {  // If this is the first character
         if (key === '*'
