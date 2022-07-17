@@ -37,7 +37,7 @@ const calculatorButtons = document.querySelector('.buttons').querySelectorAll('b
 function switchMode(event) {
     const modeButton = event.target;
     if (modeButton.id === 'mouseMode') {
-        console.log('mouse');
+        calculatorButtons.forEach(button => button.disabled = false);
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
     }
