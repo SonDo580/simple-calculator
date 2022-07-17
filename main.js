@@ -223,13 +223,13 @@ function addKeyToExpression(key) {
             return;
         }
 
-        // const numbers = expression.split(/[^0-9.]/);
-        // if (numbers[0] === '') {
-        //     numbers.shift();
-        // }
-        // if (numbers[numbers.length - 1] === '') {
-        //     numbers.pop();
-        // }
+        const numbers = expression.split(/[^0-9.]/);
+        if (numbers[0] === '') {
+            numbers.shift();
+        }
+        if (numbers[numbers.length - 1] === '') {
+            numbers.pop();
+        }
 
         // // Don't let user select 2 '.' in a number
         // if (button.textContent === '.') {
