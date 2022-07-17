@@ -16,6 +16,8 @@ clearButton.addEventListener('click', clearAll);
 const evaluateButton = document.querySelector('#evaluate');
 evaluateButton.addEventListener('click', evaluateExpression);
 
+window.addEventListener('keydown', handleKeyPress);     // Add keyboard support
+
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
@@ -25,8 +27,6 @@ let buttonSelections = [];
 let expression = '';
 let result = 0;
 
-// Add keyboard support
-window.addEventListener('keydown', handleKeyBoard);
 
 function addToExpression(event) {
     const button = event.target;
@@ -164,13 +164,16 @@ function operate(operator, a, b) {
 }
 
 
-// The following function is for keyboard support
-function handleKeyBoard(event) {
+// The following functions are for keyboard support
+function handleKeyPress(event) {
     const key = event.key;
 
     if (key === 'Shift') {
         return;
     }
     
-    
+    const expressionRegex = /[0-9.\+\-\*\/]/;
+    if (expressionRegex.test(key)) {
+        addKeyToExpression(key);
+    }
 }
