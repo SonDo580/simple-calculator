@@ -303,9 +303,9 @@ function evaluateExpressionKeyboard() {
     const firstOperand = +expression.slice(0, opertorIndex);
     const secondOperand = +expression.slice(opertorIndex + 1);
 
-    // result = operate(operator, firstOperand, secondOperand);
-    // if (result.toString().length > 2) {
-    //     result = result.toFixed(2);
-    // }
-    // resultDisplay.textContent = result; 
+    result = operate(operator, firstOperand, secondOperand);
+    if (result.toString().length > 2) {
+        result = result.toFixed(2);
+    }
+    resultDisplay.textContent = result; 
 }
