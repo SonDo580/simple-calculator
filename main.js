@@ -39,7 +39,7 @@ function switchMode(event) {
     if (modeButton.id === 'mouseMode') {
         console.log('mouse');
     } else if (modeButton.id === 'keyboardMode') {
-        console.log('key');
+        calculatorButtons.forEach(button => button.disabled = true);
     }
 }
 
