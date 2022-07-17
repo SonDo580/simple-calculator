@@ -213,10 +213,10 @@ function addKeyToExpression(key) {
         operationDisplay.textContent = expression;
 
     } else {
-        const lastCharacter = expression[expression.length - 1];
-        console.log(lastCharacter);
+        const lastKey = expression[expression.length - 1];
+        console.log(lastKey);
 
-        // if (isOperator(lastButton) && isOperator(button)
+        // if (isOperatorKey(lastKey) && isOperator(key)
         //     || isOperator(lastButton) && button.textContent === '.'
         //     || lastButton.textContent === '.' && isOperator(button)
         //     || lastButton.textContent === '.' && button.textContent === '.') {
