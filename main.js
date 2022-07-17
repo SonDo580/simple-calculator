@@ -213,6 +213,10 @@ function handleKeyPress(event) {
     if (key === 'Backspace') {
         removeLastKey();
     }
+
+    if (key === 'Delete') {
+        clearAllKeys();
+    }
 }
 
 function addKeyToExpression(key) {
