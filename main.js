@@ -200,8 +200,8 @@ function handleKeyPress(event) {
 
     if (key === 'Shift') {
         return;
-    // } else if (key === 'Enter') {
-    //     return;
+    } else if (key === 'Enter') {
+        return;
     } else if (functionKeys.includes(key)) {
         return;
     } else if (expressionRegex.test(key)) {
