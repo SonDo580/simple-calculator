@@ -34,7 +34,6 @@ const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
 resultDisplay.textContent = 0;
 
-let buttonSelections = [];
 let expression = '';
 let result = 0;
 
