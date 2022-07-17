@@ -64,7 +64,7 @@ function addButtonToExpression(event) {
     addKeyToExpression(button);
 }
 
-function removeLastSelection() {
+function removeLastCharacter() {
     expression = expression.slice(0, expression.length - 1);
     operationDisplay.textContent = expression;
 }
