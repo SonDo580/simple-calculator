@@ -253,3 +253,8 @@ function addKeyToExpression(key) {
         // operationDisplay.textContent = expression;
     }
 } 
+
+function isOperatorKey(key) {
+    const operatorRegex = /[\+\-\*\/]/;
+    return operatorRegex.test(key);
+}
