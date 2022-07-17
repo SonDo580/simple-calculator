@@ -211,7 +211,7 @@ function handleKeyPress(event) {
     }
 }
 
-function isOperatorKey(key) {
+function isOperator(key) {
     return operatorRegex.test(key);
 }
 
