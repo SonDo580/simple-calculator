@@ -21,7 +21,7 @@ const keyboardModeButton = document.querySelector('#keyboardMode');
 mouseModeButton.addEventListener('click', switchMode);
 keyboardModeButton.addEventListener('click', switchMode);
 
-window.addEventListener('keydown', handleKeyPress);
+// window.addEventListener('keydown', handleKeyPress);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -32,6 +32,16 @@ let buttonSelections = [];
 let expression = '';
 let result = 0;
 
+const calculatorButtons = document.querySelector('.buttons').querySelectorAll('button');
+
+function switchMode(event) {
+    const modeButton = event.target;
+    if (modeButton.id === 'mouseMode') {
+        console.log('mouse');
+    } else if (modeButton.id === 'keyboardMode') {
+        console.log('key');
+    }
+}
 
 function addToExpression(event) {
     const button = event.target;
@@ -183,55 +193,55 @@ function handleKeyPress(event) {
     }
 }
 
-function addKeyToExpression(key) {
-    if (buttonSelections.length === 0) {  // If this is the first character
-        if (button.textContent === '*'
-            || button.textContent === '/'
-            || button.textContent === '.') {
+// function addKeyToExpression(key) {
+//     if (buttonSelections.length === 0) {  // If this is the first character
+//         if (button.textContent === '*'
+//             || button.textContent === '/'
+//             || button.textContent === '.') {
 
-            return;
-        }
+//             return;
+//         }
 
-        buttonSelections.push(button);
-        expression += button.textContent;
-        operationDisplay.textContent = expression;
+//         buttonSelections.push(button);
+//         expression += button.textContent;
+//         operationDisplay.textContent = expression;
 
-    } else {
-        const lastButton = buttonSelections[buttonSelections.length - 1];
-        if (isOperator(lastButton) && isOperator(button)
-            || isOperator(lastButton) && button.textContent === '.'
-            || lastButton.textContent === '.' && isOperator(button)
-            || lastButton.textContent === '.' && button.textContent === '.') {
+//     } else {
+//         const lastButton = buttonSelections[buttonSelections.length - 1];
+//         if (isOperator(lastButton) && isOperator(button)
+//             || isOperator(lastButton) && button.textContent === '.'
+//             || lastButton.textContent === '.' && isOperator(button)
+//             || lastButton.textContent === '.' && button.textContent === '.') {
 
-            return;
-        }
+//             return;
+//         }
 
-        const numbers = expression.split(/[^0-9.]/);
-        if (numbers[0] === '') {
-            numbers.shift();
-        }
-        if (numbers[numbers.length - 1] === '') {
-            numbers.pop();
-        }
+//         const numbers = expression.split(/[^0-9.]/);
+//         if (numbers[0] === '') {
+//             numbers.shift();
+//         }
+//         if (numbers[numbers.length - 1] === '') {
+//             numbers.pop();
+//         }
 
-        // Don't let user select 2 '.' in a number
-        if (button.textContent === '.') {
-            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
-                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+//         // Don't let user select 2 '.' in a number
+//         if (button.textContent === '.') {
+//             if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+//                 || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
 
-                return;
-            }
-        }
+//                 return;
+//             }
+//         }
 
-        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-            if (isOperator(button)) {
-                evaluateExpression();
-                expression = result;
-            }
-        }
+//         if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
+//             if (isOperator(button)) {
+//                 evaluateExpression();
+//                 expression = result;
+//             }
+//         }
 
-        buttonSelections.push(button);
-        expression += button.textContent;
-        operationDisplay.textContent = expression;
-    }
-} 
+//         buttonSelections.push(button);
+//         expression += button.textContent;
+//         operationDisplay.textContent = expression;
+//     }
+// } 
