@@ -79,9 +79,9 @@ function addKeyToExpression(key) {
     } else {
         const lastKey = expression[expression.length - 1];
 
-        if (isOperatorKey(lastKey) && isOperatorKey(key)
-            || isOperatorKey(lastKey) && key === '.'
-            || lastKey === '.' && isOperatorKey(key)
+        if (isOperator(lastKey) && isOperator(key)
+            || isOperator(lastKey) && key === '.'
+            || lastKey === '.' && isOperator(key)
             || lastKey === '.' && key === '.') {
 
             return;
@@ -105,8 +105,8 @@ function addKeyToExpression(key) {
         }
 
         if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-            if (isOperatorKey(key)) {
-                evaluateExpressionKeyboard();
+            if (isOperator(key)) {
+                evaluateExpression();
                 expression = result;
             }
         }
@@ -115,6 +115,26 @@ function addKeyToExpression(key) {
         operationDisplay.textContent = expression;
     }
 } 
+
+function handleKeyPress(event) {
+    const key = event.key;
+
+    if (key === 'Shift') {
+        return;
+    } else if (key === 'Enter') {
+        return;
+    } else if (functionKeys.includes(key)) {
+        return;
+    } else if (expressionRegex.test(key)) {
+        addKeyToExpression(key);
+    } else if (key === 'Backspace') {
+        removeLastCharacter();
+    } else if (key === 'Delete') {
+        clearAll();
+    } else if (key === '=') {
+        evaluateExpression();
+    }
+}
 
 function removeLastCharacter() {
     expression = expression.slice(0, expression.length - 1);
@@ -157,6 +177,24 @@ function evaluateExpression() {
     resultDisplay.textContent = result; 
 }
 
+function isOperator(key) {
+    return operatorRegex.test(key);
+}
+
+function roundNumber(number) {      
+    let fractionalPart = number.toString().split('.')[1];
+
+    if (fractionalPart === undefined) {     // If 'number' is an integer
+        return number;
+    }
+
+    if (fractionalPart.length > 2) {    
+        return +number.toFixed(2);
+    }
+
+    return number;     
+}
+
 function add(a, b) {
     return a + b;
 }
@@ -189,42 +227,4 @@ function operate(operator, a, b) {
         default:
             return 'Invalid operator!';
     }
-}
-
-function handleKeyPress(event) {
-    const key = event.key;
-
-    if (key === 'Shift') {
-        return;
-    } else if (key === 'Enter') {
-        return;
-    } else if (functionKeys.includes(key)) {
-        return;
-    } else if (expressionRegex.test(key)) {
-        addKeyToExpression(key);
-    } else if (key === 'Backspace') {
-        removeLastCharacter();
-    } else if (key === 'Delete') {
-        clearAll();
-    } else if (key === '=') {
-        evaluateExpression();
-    }
-}
-
-function isOperator(key) {
-    return operatorRegex.test(key);
-}
-
-function roundNumber(number) {      
-    let fractionalPart = number.toString().split('.')[1];
-
-    if (fractionalPart === undefined) {     // If 'number' is an integer
-        return number;
-    }
-
-    if (fractionalPart.length > 2) {    
-        return +number.toFixed(2);
-    }
-
-    return number;     
 }
