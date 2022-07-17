@@ -280,10 +280,11 @@ function clearAllKeys() {
 }
 
 function evaluateExpressionKeyboard() {
-    // const lastButton = buttonSelections[buttonSelections.length - 1];
-    // if (isOperator(lastButton) || lastButton.textContent === '.') {
-    //     return;
-    // }
+    const lastKey = expression[expression.length - 1];
+
+    if (isOperatorKey(lastKey) || lastKey === '.') {
+        return;
+    }
 
     // const operators = expression.match(/[^0-9.]/g);
     // if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
