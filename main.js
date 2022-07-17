@@ -59,7 +59,7 @@ function switchMode(event) {
     }
 }
 
-function addButtonToExpression(event) {
+function addToExpression(event) {
     const button = event.target.textContent;
     addKeyToExpression(button);
 }
