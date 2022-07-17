@@ -200,56 +200,56 @@ function handleKeyPress(event) {
     }
 }
 
-// function addKeyToExpression(key) {
-//     if (buttonSelections.length === 0) {  // If this is the first character
-//         if (button.textContent === '*'
-//             || button.textContent === '/'
-//             || button.textContent === '.') {
+function addKeyToExpression(key) {
+    if (expression === '') {  // If this is the first character
+        if (key === '*'
+            || key === '/'
+            || key === '.') {
 
-//             return;
-//         }
+            return;
+        }
 
-//         buttonSelections.push(button);
-//         expression += button.textContent;
-//         operationDisplay.textContent = expression;
+        expression += key;
+        operationDisplay.textContent = expression;
 
-//     } else {
-//         const lastButton = buttonSelections[buttonSelections.length - 1];
-//         if (isOperator(lastButton) && isOperator(button)
-//             || isOperator(lastButton) && button.textContent === '.'
-//             || lastButton.textContent === '.' && isOperator(button)
-//             || lastButton.textContent === '.' && button.textContent === '.') {
+    } else {
+        const lastCharacter = expression[expression.length - 1];
+        console.log(lastCharacter);
 
-//             return;
-//         }
+        // if (isOperator(lastButton) && isOperator(button)
+        //     || isOperator(lastButton) && button.textContent === '.'
+        //     || lastButton.textContent === '.' && isOperator(button)
+        //     || lastButton.textContent === '.' && button.textContent === '.') {
 
-//         const numbers = expression.split(/[^0-9.]/);
-//         if (numbers[0] === '') {
-//             numbers.shift();
-//         }
-//         if (numbers[numbers.length - 1] === '') {
-//             numbers.pop();
-//         }
+        //     return;
+        // }
 
-//         // Don't let user select 2 '.' in a number
-//         if (button.textContent === '.') {
-//             if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
-//                 || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+        // const numbers = expression.split(/[^0-9.]/);
+        // if (numbers[0] === '') {
+        //     numbers.shift();
+        // }
+        // if (numbers[numbers.length - 1] === '') {
+        //     numbers.pop();
+        // }
 
-//                 return;
-//             }
-//         }
+        // // Don't let user select 2 '.' in a number
+        // if (button.textContent === '.') {
+        //     if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+        //         || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
 
-//         if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-//             if (isOperator(button)) {
-//                 evaluateExpression();
-//                 expression = result;
-//             }
-//         }
+        //         return;
+        //     }
+        // }
 
-//         buttonSelections.push(button);
-//         expression += button.textContent;
-//         operationDisplay.textContent = expression;
-//     }
-// } 
+        // if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
+        //     if (isOperator(button)) {
+        //         evaluateExpression();
+        //         expression = result;
+        //     }
+        // }
 
+        // buttonSelections.push(button);
+        // expression += button.textContent;
+        // operationDisplay.textContent = expression;
+    }
+} 
