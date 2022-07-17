@@ -16,7 +16,12 @@ clearButton.addEventListener('click', clearAll);
 const evaluateButton = document.querySelector('#evaluate');
 evaluateButton.addEventListener('click', evaluateExpression);
 
-window.addEventListener('keydown', handleKeyPress);     // Add keyboard support
+const mouseModeButton = document.querySelector('#mouseMode');
+const keyboardModeButton = document.querySelector('#keyboardMode');
+mouseModeButton.addEventListener('click', switchMode);
+keyboardModeButton.addEventListener('click', switchMode);
+
+window.addEventListener('keydown', handleKeyPress);
 
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
@@ -177,3 +182,56 @@ function handleKeyPress(event) {
         addKeyToExpression(key);
     }
 }
+
+function addKeyToExpression(key) {
+    if (buttonSelections.length === 0) {  // If this is the first character
+        if (button.textContent === '*'
+            || button.textContent === '/'
+            || button.textContent === '.') {
+
+            return;
+        }
+
+        buttonSelections.push(button);
+        expression += button.textContent;
+        operationDisplay.textContent = expression;
+
+    } else {
+        const lastButton = buttonSelections[buttonSelections.length - 1];
+        if (isOperator(lastButton) && isOperator(button)
+            || isOperator(lastButton) && button.textContent === '.'
+            || lastButton.textContent === '.' && isOperator(button)
+            || lastButton.textContent === '.' && button.textContent === '.') {
+
+            return;
+        }
+
+        const numbers = expression.split(/[^0-9.]/);
+        if (numbers[0] === '') {
+            numbers.shift();
+        }
+        if (numbers[numbers.length - 1] === '') {
+            numbers.pop();
+        }
+
+        // Don't let user select 2 '.' in a number
+        if (button.textContent === '.') {
+            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+
+                return;
+            }
+        }
+
+        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
+            if (isOperator(button)) {
+                evaluateExpression();
+                expression = result;
+            }
+        }
+
+        buttonSelections.push(button);
+        expression += button.textContent;
+        operationDisplay.textContent = expression;
+    }
+} 
