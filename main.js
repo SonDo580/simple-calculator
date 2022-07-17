@@ -231,14 +231,14 @@ function addKeyToExpression(key) {
             numbers.pop();
         }
 
-        // // Don't let user select 2 '.' in a number
-        // if (button.textContent === '.') {
-        //     if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
-        //         || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+        // Don't let user select 2 '.' in a number
+        if (key === '.') {
+            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
 
-        //         return;
-        //     }
-        // }
+                return;
+            }
+        }
 
         // if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
         //     if (isOperator(button)) {
