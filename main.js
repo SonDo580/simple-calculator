@@ -1,3 +1,6 @@
+const expressionRegex = /[0-9.\+\-\*\/]/;
+const operatorRegex = /[\+\-\*\/]/;
+
 const numberButtons = document.querySelectorAll('.number');
 numberButtons.forEach(button => button.addEventListener('click', addToExpression));
 
@@ -194,7 +197,6 @@ function handleKeyPress(event) {
         return;
     }
     
-    const expressionRegex = /[0-9.\+\-\*\/]/;
     if (expressionRegex.test(key)) {
         addKeyToExpression(key);
     }
@@ -254,6 +256,5 @@ function addKeyToExpression(key) {
 } 
 
 function isOperatorKey(key) {
-    const operatorRegex = /[\+\-\*\/]/;
     return operatorRegex.test(key);
 }
