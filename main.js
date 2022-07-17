@@ -24,11 +24,6 @@ clearButton.addEventListener('click', clearAll);
 const evaluateButton = document.querySelector('#evaluate');
 evaluateButton.addEventListener('click', evaluateExpression);
 
-const mouseModeButton = document.querySelector('#mouseMode');
-const keyboardModeButton = document.querySelector('#keyboardMode');
-mouseModeButton.addEventListener('click', switchMode);
-keyboardModeButton.addEventListener('click', switchMode);
-
 const operationDisplay = document.querySelector('.operation');
 const resultDisplay = document.querySelector('.result');
 operationDisplay.textContent = '';
@@ -37,27 +32,6 @@ resultDisplay.textContent = 0;
 let expression = '';
 let result = 0;
 
-const calculatorButtons = document.querySelector('.buttons').querySelectorAll('button');
-
-function switchMode(event) {
-    clearAll();
-    const modeButton = event.target;
-
-    if (modeButton.id === 'mouseMode') {
-        calculatorButtons.forEach(button => button.disabled = false);
-        window.removeEventListener('keydown', handleKeyPress);
-
-        mouseModeButton.classList.toggle('active');
-        keyboardModeButton.classList.toggle('active');
-
-    } else if (modeButton.id === 'keyboardMode') {
-        calculatorButtons.forEach(button => button.disabled = true);
-        window.addEventListener('keydown', handleKeyPress);
-
-        mouseModeButton.classList.toggle('active');
-        keyboardModeButton.classList.toggle('active');
-    }
-}
 
 function addToExpression(event) {
     const button = event.target.textContent;
