@@ -216,13 +216,13 @@ function addKeyToExpression(key) {
         const lastKey = expression[expression.length - 1];
         console.log(lastKey);
 
-        // if (isOperatorKey(lastKey) && isOperator(key)
-        //     || isOperator(lastButton) && button.textContent === '.'
-        //     || lastButton.textContent === '.' && isOperator(button)
-        //     || lastButton.textContent === '.' && button.textContent === '.') {
+        if (isOperatorKey(lastKey) && isOperator(key)
+            || isOperatorKey(lastKey) && key === '.'
+            || lastKey === '.' && isOperatorKey(key)
+            || lastKey === '.' && key === '.') {
 
-        //     return;
-        // }
+            return;
+        }
 
         // const numbers = expression.split(/[^0-9.]/);
         // if (numbers[0] === '') {
