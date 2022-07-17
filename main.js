@@ -103,6 +103,9 @@ function evaluateExpression() {
     }
 
     const operators = expression.match(/[^0-9.]/g);
+    if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
+        operators.shift();
+    }
     
     if (operators === null) {       // User select '=' when there's only 1 number
         result = +expression;
@@ -110,7 +113,7 @@ function evaluateExpression() {
         return;
     }
 
-    const operator = operators.length === 2 ? operators[1] : operators[0];      // In case the first one is + or -
+    const operator = operators[0];      
     const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
 
     const firstOperand = +expression.slice(0, opertorIndex);
