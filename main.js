@@ -69,13 +69,11 @@ function isOperator(element) {
 }
 
 function removeLastSelection() {
-    buttonSelections.pop();
     expression = expression.slice(0, expression.length - 1);
     operationDisplay.textContent = expression;
 }
 
 function clearAll() {
-    buttonSelections = [];
     operationDisplay.textContent = '';
     resultDisplay.textContent = 0;
 }
