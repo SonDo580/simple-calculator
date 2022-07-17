@@ -209,6 +209,10 @@ function handleKeyPress(event) {
     if (expressionRegex.test(key)) {
         addKeyToExpression(key);
     }
+
+    if (key === 'Backspace') {
+        removeLastKey();
+    }
 }
 
 function addKeyToExpression(key) {
