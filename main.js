@@ -216,7 +216,7 @@ function addKeyToExpression(key) {
         const lastKey = expression[expression.length - 1];
         console.log(lastKey);
 
-        if (isOperatorKey(lastKey) && isOperator(key)
+        if (isOperatorKey(lastKey) && isOperatorKey(key)
             || isOperatorKey(lastKey) && key === '.'
             || lastKey === '.' && isOperatorKey(key)
             || lastKey === '.' && key === '.') {
