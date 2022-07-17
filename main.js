@@ -215,47 +215,6 @@ function isOperatorKey(key) {
     return operatorRegex.test(key);
 }
 
-function removeLastKey() {
-    expression = expression.slice(0, expression.length - 1);
-    operationDisplay.textContent = expression;
-}
-
-function clearAllKeys() {
-    operationDisplay.textContent = '';
-    resultDisplay.textContent = 0;
-}
-
-function evaluateExpressionKeyboard() {
-    const lastKey = expression[expression.length - 1];
-
-    if (isOperatorKey(lastKey) || lastKey === '.') {
-        return;
-    }
-
-    const operators = expression.match(/[^0-9.]/g);
-    if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
-        operators.shift();
-    }
-    
-    if (operators === null) {       // User press '=' when there's only 1 number
-        result = +expression;
-        resultDisplay.textContent = result; 
-        return;
-    }
-
-    const operator = operators[0];      
-    const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
-
-    const firstOperand = +expression.slice(0, opertorIndex); 
-    const secondOperand = +expression.slice(opertorIndex + 1);
-
-    result = operate(operator, firstOperand, secondOperand);
-    if (typeof result === 'number') {   // If there's an error, result will be a string
-        result = roundNumber(result);
-    }
-    resultDisplay.textContent = result; 
-}
-
 function roundNumber(number) {      
     let fractionalPart = number.toString().split('.')[1];
 
