@@ -267,3 +267,44 @@ function addKeyToExpression(key) {
 function isOperatorKey(key) {
     return operatorRegex.test(key);
 }
+
+function removeLastKey() {
+    expression = expression.slice(0, expression.length - 1);
+    operationDisplay.textContent = expression;
+}
+
+// function clearAll() {
+//     buttonSelections = [];
+//     operationDisplay.textContent = '';
+//     resultDisplay.textContent = 0;
+// }
+
+// // function evaluateExpression() {
+// //     const lastButton = buttonSelections[buttonSelections.length - 1];
+// //     if (isOperator(lastButton) || lastButton.textContent === '.') {
+// //         return;
+// //     }
+
+// //     const operators = expression.match(/[^0-9.]/g);
+// //     if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
+// //         operators.shift();
+// //     }
+    
+// //     if (operators === null) {       // User start evaluating (click '=') when there's only 1 number
+// //         result = +expression;
+// //         resultDisplay.textContent = result; 
+// //         return;
+// //     }
+
+// //     const operator = operators[0];      
+// //     const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
+
+// //     const firstOperand = +expression.slice(0, opertorIndex);
+// //     const secondOperand = +expression.slice(opertorIndex + 1);
+
+// //     result = operate(operator, firstOperand, secondOperand);
+// //     if (result.toString().length > 2) {
+// //         result = result.toFixed(2);
+// //     }
+// //     resultDisplay.textContent = result; 
+// // }
