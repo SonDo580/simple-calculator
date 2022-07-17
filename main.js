@@ -25,6 +25,9 @@ let buttonSelections = [];
 let expression = '';
 let result = 0;
 
+// Add keyboard support
+window.addEventListener('keydown', handleKeyBoard);
+
 function addToExpression(event) {
     const button = event.target;
 
@@ -160,3 +163,8 @@ function operate(operator, a, b) {
     }
 }
 
+
+// The following function is for keyboard support
+function handleKeyBoard(event) {
+   
+}
