@@ -51,11 +51,20 @@ function addToExpression(event) {
         }
 
         const numbers = expression.split(/[^0-9.]/);
-        if (numbers[0] === '') {       
+        if (numbers[0] === '') {
             numbers.shift();
         }
         if (numbers[numbers.length - 1] === '') {
             numbers.pop();
+        }
+
+        // Don't let user select 2 '.' in a number
+        if (button.textContent === '.') {
+            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+
+                return;
+            }
         }
 
         if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
@@ -96,7 +105,7 @@ function evaluateExpression() {
     const operators = expression.match(/[^0-9.]/g);
     const operator = operators.length === 2 ? operators[1] : operators[0];      // In case the first one is + or -
     const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
-    
+
     const firstOperand = +expression.slice(0, opertorIndex);
     const secondOperand = +expression.slice(opertorIndex + 1);
 
