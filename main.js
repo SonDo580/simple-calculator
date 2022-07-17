@@ -297,11 +297,11 @@ function evaluateExpressionKeyboard() {
         return;
     }
 
-    // const operator = operators[0];      
-    // const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
+    const operator = operators[0];      
+    const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
 
-    // const firstOperand = +expression.slice(0, opertorIndex);
-    // const secondOperand = +expression.slice(opertorIndex + 1);
+    const firstOperand = +expression.slice(0, opertorIndex);
+    const secondOperand = +expression.slice(opertorIndex + 1);
 
     // result = operate(operator, firstOperand, secondOperand);
     // if (result.toString().length > 2) {
