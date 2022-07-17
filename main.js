@@ -75,8 +75,9 @@ function clearAll() {
 }
 
 function evaluateExpression() {
-    const lastButton = buttonSelections[buttonSelections.length - 1];
-    if (isOperator(lastButton) || lastButton.textContent === '.') {
+    const lastKey = expression[expression.length - 1];
+
+    if (isOperatorKey(lastKey) || lastKey === '.') {
         return;
     }
 
@@ -85,7 +86,7 @@ function evaluateExpression() {
         operators.shift();
     }
     
-    if (operators === null) {       // User start evaluating (click '=') when there's only 1 number
+    if (operators === null) {       // User press '=' when there's only 1 number
         result = +expression;
         resultDisplay.textContent = result; 
         return;
@@ -94,12 +95,12 @@ function evaluateExpression() {
     const operator = operators[0];      
     const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
 
-    const firstOperand = +expression.slice(0, opertorIndex);
+    const firstOperand = +expression.slice(0, opertorIndex); 
     const secondOperand = +expression.slice(opertorIndex + 1);
 
     result = operate(operator, firstOperand, secondOperand);
-    if (result.toString().length > 2) {
-        result = result.toFixed(2);
+    if (typeof result === 'number') {   // If there's an error, result will be a string
+        result = roundNumber(result);
     }
     resultDisplay.textContent = result; 
 }
