@@ -64,10 +64,6 @@ function addButtonToExpression(event) {
     addKeyToExpression(button);
 }
 
-function isOperator(element) {
-    return element.classList.contains('operator');
-}
-
 function removeLastSelection() {
     expression = expression.slice(0, expression.length - 1);
     operationDisplay.textContent = expression;
