@@ -149,7 +149,7 @@ function clearAll() {
 function evaluateExpression() {
     const lastKey = expression[expression.length - 1];
 
-    if (isOperatorKey(lastKey) || lastKey === '.') {
+    if (isOperator(lastKey) || lastKey === '.') {
         return;
     }
 
