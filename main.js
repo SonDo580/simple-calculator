@@ -35,7 +35,6 @@ let expression = '';
 let result = 0;
 
 function addToExpression(event) {
-    console.log(event);
     const button = event.target.textContent;
     addKeyToExpression(button);
 }
