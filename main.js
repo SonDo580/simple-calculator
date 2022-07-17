@@ -8,7 +8,7 @@ const decimalPoint = document.querySelector('#decimalPoint');
 decimalPoint.addEventListener('click', addToExpression);
 
 const deleteButton = document.querySelector('#delete');
-deleteButton.addEventListener('click', removeLastSelection);
+deleteButton.addEventListener('click', removeLastCharacter);
 
 const clearButton = document.querySelector('#clear');
 clearButton.addEventListener('click', clearAll);
@@ -35,6 +35,7 @@ let expression = '';
 let result = 0;
 
 function addToExpression(event) {
+    console.log(event);
     const button = event.target.textContent;
     addKeyToExpression(button);
 }
