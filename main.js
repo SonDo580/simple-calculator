@@ -33,10 +33,13 @@ let result = 0;
 const calculatorButtons = document.querySelector('.buttons').querySelectorAll('button');
 
 function switchMode(event) {
+    clearAll();
     const modeButton = event.target;
+
     if (modeButton.id === 'mouseMode') {
         calculatorButtons.forEach(button => button.disabled = false);
         window.removeEventListener('keydown');
+
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
         window.addEventListener('keydown', handleKeyPress);
@@ -111,7 +114,7 @@ function removeLastSelection() {
 function clearAll() {
     buttonSelections = [];
     operationDisplay.textContent = '';
-    resultDisplay.textContent = '';
+    resultDisplay.textContent = 0;
 }
 
 function evaluateExpression() {
