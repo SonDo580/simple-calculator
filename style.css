@@ -2,20 +2,7 @@
     background-color: gray;
     width: 500px;
     height: 400px;
-    margin: 10px auto;
-}
-
-.mode {
-    display: flex;
-}
-
-#mouseMode, #keyboardMode {
-    flex: 1;
-}
-
-.active {
-    background-color: blue;
-    color: yellow;
+    margin: 30px auto;
 }
 
 .display {
