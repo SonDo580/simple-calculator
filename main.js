@@ -286,16 +286,16 @@ function evaluateExpressionKeyboard() {
         return;
     }
 
-    // const operators = expression.match(/[^0-9.]/g);
-    // if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
-    //     operators.shift();
-    // }
+    const operators = expression.match(/[^0-9.]/g);
+    if (expression.indexOf(operators[0]) === 0) {   // In case the first symbol is '+' or '-'
+        operators.shift();
+    }
     
-    // if (operators === null) {       // User start evaluating (click '=') when there's only 1 number
-    //     result = +expression;
-    //     resultDisplay.textContent = result; 
-    //     return;
-    // }
+    if (operators === null) {       // User press '=' when there's only 1 number
+        result = +expression;
+        resultDisplay.textContent = result; 
+        return;
+    }
 
     // const operator = operators[0];      
     // const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
