@@ -64,6 +64,58 @@ function addButtonToExpression(event) {
     addKeyToExpression(button);
 }
 
+function addKeyToExpression(key) {
+    if (expression === '') {  // If this is the first character
+        if (key === '*'
+            || key === '/'
+            || key === '.') {
+
+            return;
+        }
+
+        expression += key;
+        operationDisplay.textContent = expression;
+
+    } else {
+        const lastKey = expression[expression.length - 1];
+
+        if (isOperatorKey(lastKey) && isOperatorKey(key)
+            || isOperatorKey(lastKey) && key === '.'
+            || lastKey === '.' && isOperatorKey(key)
+            || lastKey === '.' && key === '.') {
+
+            return;
+        }
+
+        const numbers = expression.split(/[^0-9.]/);
+        if (numbers[0] === '') {
+            numbers.shift();
+        }
+        if (numbers[numbers.length - 1] === '') {
+            numbers.pop();
+        }
+
+        // Don't let user select 2 '.' in a number
+        if (key === '.') {
+            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
+                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
+
+                return;
+            }
+        }
+
+        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
+            if (isOperatorKey(key)) {
+                evaluateExpressionKeyboard();
+                expression = result;
+            }
+        }
+
+        expression += key;
+        operationDisplay.textContent = expression;
+    }
+} 
+
 function removeLastCharacter() {
     expression = expression.slice(0, expression.length - 1);
     operationDisplay.textContent = expression;
@@ -151,65 +203,13 @@ function handleKeyPress(event) {
     } else if (expressionRegex.test(key)) {
         addKeyToExpression(key);
     } else if (key === 'Backspace') {
-        removeLastKey();
+        removeLastCharacter();
     } else if (key === 'Delete') {
-        clearAllKeys();
+        clearAll();
     } else if (key === '=') {
-        evaluateExpressionKeyboard();
+        evaluateExpression();
     }
 }
-
-function addKeyToExpression(key) {
-    if (expression === '') {  // If this is the first character
-        if (key === '*'
-            || key === '/'
-            || key === '.') {
-
-            return;
-        }
-
-        expression += key;
-        operationDisplay.textContent = expression;
-
-    } else {
-        const lastKey = expression[expression.length - 1];
-
-        if (isOperatorKey(lastKey) && isOperatorKey(key)
-            || isOperatorKey(lastKey) && key === '.'
-            || lastKey === '.' && isOperatorKey(key)
-            || lastKey === '.' && key === '.') {
-
-            return;
-        }
-
-        const numbers = expression.split(/[^0-9.]/);
-        if (numbers[0] === '') {
-            numbers.shift();
-        }
-        if (numbers[numbers.length - 1] === '') {
-            numbers.pop();
-        }
-
-        // Don't let user select 2 '.' in a number
-        if (key === '.') {
-            if (numbers.length === 1 && numbers[0].indexOf('.') !== -1
-                || numbers.length === 2 && numbers[1].indexOf('.') !== -1) {
-
-                return;
-            }
-        }
-
-        if (numbers.length === 2) {    // Evaluate the first pair when user selects the second operator
-            if (isOperatorKey(key)) {
-                evaluateExpressionKeyboard();
-                expression = result;
-            }
-        }
-
-        expression += key;
-        operationDisplay.textContent = expression;
-    }
-} 
 
 function isOperatorKey(key) {
     return operatorRegex.test(key);
