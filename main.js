@@ -200,6 +200,8 @@ function handleKeyPress(event) {
 
     if (key === 'Shift') {
         return;
+    // } else if (key === 'Enter') {
+    //     return;
     } else if (functionKeys.includes(key)) {
         return;
     } else if (expressionRegex.test(key)) {
@@ -304,8 +306,8 @@ function evaluateExpressionKeyboard() {
     const secondOperand = +expression.slice(opertorIndex + 1);
 
     result = operate(operator, firstOperand, secondOperand);
-    if (result.toString().length > 2) {
-        result = result.toFixed(2);
+    if (typeof result === 'number') {   // If there's an error, result will be a string
+        result = roundNumber(result);
     }
     resultDisplay.textContent = result; 
 }
