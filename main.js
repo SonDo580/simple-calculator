@@ -300,7 +300,7 @@ function evaluateExpressionKeyboard() {
     const operator = operators[0];      
     const opertorIndex = expression.lastIndexOf(operator);      // The first symbol maybe '+' or '-', so we search backwards
 
-    const firstOperand = +expression.slice(0, opertorIndex);
+    const firstOperand = +expression.slice(0, opertorIndex); 
     const secondOperand = +expression.slice(opertorIndex + 1);
 
     result = operate(operator, firstOperand, secondOperand);
@@ -308,4 +308,18 @@ function evaluateExpressionKeyboard() {
         result = result.toFixed(2);
     }
     resultDisplay.textContent = result; 
+}
+
+function roundNumber(number) {      
+    let fractionalPart = number.toString().split('.')[1];
+
+    if (fractionalPart === undefined) {     // If 'number' is an integer
+        return number;
+    }
+
+    if (fractionalPart.length > 2) {    
+        return +number.toFixed(2);
+    }
+
+    return number;     
 }
