@@ -39,12 +39,16 @@ function switchMode(event) {
     if (modeButton.id === 'mouseMode') {
         calculatorButtons.forEach(button => button.disabled = false);
         window.removeEventListener('keydown', handleKeyPress);
-        // mouseModeButton.classList.add('active');
-        // keyboardModeButton.classList.remove('active');
+
+        mouseModeButton.classList.toggle('active');
+        keyboardModeButton.classList.toggle('active');
 
     } else if (modeButton.id === 'keyboardMode') {
         calculatorButtons.forEach(button => button.disabled = true);
         window.addEventListener('keydown', handleKeyPress);
+
+        mouseModeButton.classList.toggle('active');
+        keyboardModeButton.classList.toggle('active');
     }
 }
 
