@@ -166,5 +166,11 @@ function operate(operator, a, b) {
 
 // The following function is for keyboard support
 function handleKeyBoard(event) {
-   
+    const key = event.key;
+
+    if (key === 'Shift') {
+        return;
+    }
+    
+    
 }
