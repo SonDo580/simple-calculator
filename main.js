@@ -277,11 +277,10 @@ function removeLastKey() {
     operationDisplay.textContent = expression;
 }
 
-// function clearAll() {
-//     buttonSelections = [];
-//     operationDisplay.textContent = '';
-//     resultDisplay.textContent = 0;
-// }
+function clearAllKeys() {
+    operationDisplay.textContent = '';
+    resultDisplay.textContent = 0;
+}
 
 // // function evaluateExpression() {
 // //     const lastButton = buttonSelections[buttonSelections.length - 1];
