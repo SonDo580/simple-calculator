@@ -107,7 +107,7 @@ function evaluateExpression() {
         operators.shift();
     }
     
-    if (operators === null) {       // User select '=' when there's only 1 number
+    if (operators === null) {       // User start evaluating (click '=') when there's only 1 number
         result = +expression;
         resultDisplay.textContent = result; 
         return;
@@ -120,6 +120,9 @@ function evaluateExpression() {
     const secondOperand = +expression.slice(opertorIndex + 1);
 
     result = operate(operator, firstOperand, secondOperand);
+    if (result.toString().length > 2) {
+        result = result.toFixed(2);
+    }
     resultDisplay.textContent = result; 
 }
 
