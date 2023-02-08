@@ -11,6 +11,6 @@ https://sondo580.github.io/simple-calculator/
 - 4 basic operation: addition, subtraction, multiplication, division
 - Validate input
 - Handle floating point numbers
-- Undo a action
+- Undo an action
 - Clear all existing data
 - Keyboard support
