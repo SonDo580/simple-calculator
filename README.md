@@ -1,1 +1,16 @@
-A simple calculator with 4 basic operation: addition, subtraction, multiplication, division.
+# Calculator
+
+A simple calculator
+
+# Live Preview
+
+https://sondo580.github.io/simple-calculator/
+
+# Features
+
+- 4 basic operation: addition, subtraction, multiplication, division
+- Validate input
+- Handle floating point numbers
+- Undo a action
+- Clear all existing data
+- Keyboard support
